@@ -18,7 +18,6 @@
                  [korma "0.4.0"]
                  [clj.qrgen "0.3.0"]
                  [clj-http "1.1.2"]
-                 [clj-time "0.11.0"]
                  [com.taoensso/carmine "2.11.1"]
                  [clojure-csv/clojure-csv "2.0.1"]
                  [log4j/log4j "1.2.16"
