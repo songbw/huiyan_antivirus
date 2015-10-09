@@ -1,0 +1,8 @@
+(ns huiyan-antivirus.sdk-version.models.sdk-versionm
+  (:require [clojure.java.jdbc :as sql]
+            [utils.log :as log]
+            [utils.uuid :as uuid]
+            huiyan-antivirus.config.database)
+  (:use [korma.core]
+        [korma.db]
+        [huiyan-antivirus.entity.entities]))

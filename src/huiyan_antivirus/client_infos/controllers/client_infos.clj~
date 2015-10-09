@@ -1,0 +1,18 @@
+(ns huiyan-antivirus.client-infos.controllers.client-infos
+  (:require [clojure.string :as str]
+            [ring.util.response :as resp]
+            [cheshire.core :as json])
+  (:require [huiyan-antivirus.client-infos.models.client-info :as client-info]
+            [utils.web :as web]
+            [utils.common :as common]
+            [utils.log :as log])
+  (:use [compojure.core]
+        [utils.web]))
+
+(def client-key [:cid :uname :sex :age :nickname :email :telphone :cpuModel :cpuKernel :cpuFrequency :ramSize :romSize :screenSize :hardwareId :operators :sysName :sysVersion :telVersion :telBrand :telModel :version :virusDataVersion :plusHostVersion :appTime])
+
+(defn add-client-info
+  [req]
+  (log/info (select-keys (:params req) client-key))
+  (customer/create! (select-keys (:params req) client-key))
+  (resp/response {:success true}))

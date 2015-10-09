@@ -1,0 +1,14 @@
+(ns huiyan-antivirus.feedbacks.models.feedback
+  (:require [clojure.java.jdbc :as sql]
+            [utils.log :as log]
+            [utils.uuid :as uuid]
+            huiyan-antivirus.config.database)
+  (:use [korma.core]
+        [korma.db]
+        [huiyan-antivirus.entity.entities]))
+
+(defn create!
+  [params]
+  (transaction
+   (insert feedbacks
+           (values (assoc params :cid (uuid/gen-uuid))))))

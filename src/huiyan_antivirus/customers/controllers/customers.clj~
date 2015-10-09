@@ -1,0 +1,26 @@
+(ns huiyan-antivirus.customers.controllers.customers
+  (:require [clojure.string :as str]
+            [ring.util.response :as resp]
+            [cheshire.core :as json])
+  (:require [huiyan-antivirus.customers.models.customer :as customer]
+            [utils.web :as web]
+            [utils.common :as common]
+            [utils.log :as log])
+  (:use [compojure.core]
+        [utils.web]))
+
+(def customer-key [:company :address :telephone :appKey :secert :username :passwd :status])
+
+(defn def-value
+  [value def_value]
+  (if (integer? value)
+    value
+    (if (empty? value)
+      def_value
+      value)))
+
+(defn add-customer
+  [req]
+  (log/info (select-keys (:params req) customer-key))
+  (customer/create! (select-keys (:params req) customer-key))
+  (resp/response (first (customer/find-by-secert (:secert (:params req))))))
