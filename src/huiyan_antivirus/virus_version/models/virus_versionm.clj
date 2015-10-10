@@ -11,7 +11,7 @@
   [params]
   (transaction
    (insert virus_version
-           (values (assoc params :svid (uuid/gen-uuid)))))
+           (values (assoc params :vvid (uuid/gen-uuid)))))
   )
 
 (defn find-by-version

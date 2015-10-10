@@ -9,7 +9,7 @@
   (:use [compojure.core]
         [utils.web]))
 
-(def sdkv-key [:md5 :sdkurl :version :scope :size :decrip])
+(def sdkv-key [:md5 :sdkurl :version :scope :size :descrip])
 
 
 (defn add-sdkv
@@ -22,5 +22,5 @@
   [req]
   (let [params (:params req)
         version (:version params)
-        id (:id (first (sdk-versionm/find-by-version version)))]
+        id (get (first (sdk-versionm/find-by-version version)) :id 0)]
     (resp/response (first (sdk-versionm/find-version id)))))

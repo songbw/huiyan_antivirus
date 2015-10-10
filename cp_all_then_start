@@ -1,13 +1,13 @@
 #!/usr/bin/expect
 
-set user songbingwei
-set passwd songbingwei
-set appname small-pieces
-set server 192.168.2.231
+set user root
+set passwd Sbw03106739070
+set appname huiyan_antivirus
+set server 182.92.186.153
 set port 22
 
 
-set sf_dir "[exec pwd]/execute/."
+set sf_dir "[exec pwd]/huiyan_execute/."
 set tf "~/${appname}_temp"
 set comd  "rm -rf ${appname};mkdir ${appname};cd ${appname};cp -rf ${tf}/. .\n"
 

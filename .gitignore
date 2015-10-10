@@ -2,6 +2,9 @@ pom.xml
 pom.xml.asc
 *jar
 /lib/
+logs/
+huiyan_execute/
+logs/
 /classes/
 /target/
 /checkouts/

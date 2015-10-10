@@ -16,13 +16,13 @@
 
 (defn find-by-version
   [version]
-  (select virus_version
+  (select sdk_version
           (fields :id)
           (where {:version version}))
   )
 
 (defn find-version
   [id]
-  (select virus_version
-          (fields :md5 :sdkurl :version :scope :size :decrip :createAt)
+  (select sdk_version
+          (fields :md5 :sdkurl :version :scope :size :descrip :createAt)
           (where {:id (+ id 1)})))

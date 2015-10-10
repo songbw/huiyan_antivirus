@@ -21,5 +21,5 @@
   [req]
   (let [params (:params req)
         version (:virusDataVersion params)
-        id (:id (first (virus-versionm/find-by-version version)))]
+        id (get (first (virus-versionm/find-by-version version)) :id 0)]
     (resp/response (first (virus-versionm/find-version id)))))
